@@ -5,9 +5,9 @@ LOOSEN_BY = 1;
 PUCK_DIAM = 68.3;
 PUCK_THICK = 18.6;
 
-wallThick = 7;
-puckHeightCoverage = .75;
-accessHoleEdgeWidth = 17;
+wallThick = 3.5;
+puckHeightCoverage = .55;
+accessHoleEdgeWidth = 6;
 
 difference() {
 
