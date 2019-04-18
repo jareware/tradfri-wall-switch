@@ -17,7 +17,8 @@ module roundedCube(
   flatLeft = false,
   flatRight = false,
   flatFront = false,
-  flatBack = false
+  flatBack = false,
+  center = false
 ) {
 
   // Calculate [ x, y, z ] compensations based on requested roundings:
@@ -36,6 +37,7 @@ module roundedCube(
     echo("<b style='color: red'>WARNING</b>: roundedCube() is too small along its z-axis");
   }
 
+  translate([ center ? x / -2 : 0, center ? y / -2 : 0, 0 ])
   difference() {
 
     // Main rounded cube:
