@@ -9,7 +9,7 @@ accessHoleEdgeWidth = 6;
 rounding = 5;
 
 translate([ 0, 0, switchDepth ])
-difference() {
+*difference() {
 
   // Main body:
   cylinder(h = PUCK_THICK * puckHeightCoverage + wallThickness, d = PUCK_DIAM + wallThickness * 2);
@@ -43,13 +43,16 @@ difference() {
     switchDepth = 14.5 + TOLERANCE
   );
 
-  cylinder(d = PUCK_DIAM + wallThickness * 2, h = ALOT);
+  // cylinder(d = PUCK_DIAM + wallThickness * 2, h = ALOT);
 
   translate([ 0, -65, 0 ])
   cube(100, 50, 50, center = true);
 
   translate([ 0, 65, 0 ])
   cube(100, 50, 50, center = true);
+
+  translate([ -30, -30, 0 ])
+  #cube(100, 50, 50, center = true);
 }
 
 color("SaddleBrown")
@@ -64,13 +67,13 @@ union() {
     mountPointRotate
   );
 
-  mirror([ 1, 0, 0 ])
-  translate([ switchWidth / 2, 0, 0 ])
-  mountPoint(
-    switchPaddingMin,
-    mountPointWidth,
-    switchDepth - mountPointRaise,
-    mountPointRotate
-  );
+  // mirror([ 1, 0, 0 ])
+  // translate([ switchWidth / 2, 0, 0 ])
+  // mountPoint(
+  //   switchPaddingMin,
+  //   mountPointWidth,
+  //   switchDepth - mountPointRaise,
+  //   mountPointRotate
+  // );
 
 }
