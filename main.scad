@@ -16,6 +16,7 @@ switchPaddingMin = min(switchPaddingX, switchPaddingY);
 mountPointWidth = 25;
 mountPointSlope = 25;
 mountPointRaise = 6;
+fingerHoleDiameter = 20;
 
 translate([ 0, 0, switchDepth ])
 difference() {
@@ -31,6 +32,10 @@ difference() {
   translate([ 0, 0, -MAGIC ])
   cylinder(h = wallThickness + MAGIC * 2, d = PUCK_DIAM - accessHoleEdgeWidth * 2);
 
+  // Carve out finger hole:
+  translate([ 0, PUCK_DIAM / -4, wallThickness + fingerHoleDiameter / 2 ])
+  rotate([ 90, 0, 0 ])
+  cylinder(d = fingerHoleDiameter, h = PUCK_DIAM / 2);
 }
 
 difference() {
