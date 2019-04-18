@@ -2,47 +2,43 @@ include <../config.scad>;
 
 // Example:
 mountPoint(
-  0,
-  14.5,
   13,
+  25,
   15,
-  25,
-  25,
-  3
+  25
 );
 
 module mountPoint(
-  switchWidth,
-  switchDepth,
-  switchPaddingX,
-  switchPaddingY,
-  mountPointWidth,
-  mountPointRotate,
-  mountPointRaise
+  width,
+  height,
+  depth,
+  mountPointRotate
 ) {
-  switchPaddingMin = min(switchPaddingX, switchPaddingY); // of the given X/Y paddings, use the smaller one
-
   difference() {
 
     // Main body:
-    translate([ switchWidth / 2 - MAGIC, 0, mountPointRaise - MAGIC ])
+    translate([ 0 - MAGIC, 0, 0 ])
     rotate([ 0, mountPointRotate, 0 ])
-    translate([ -switchPaddingMin, mountPointWidth / -2, 0 ])
+    translate([ -width, height / -2, 0 ])
     union() {
+
       // Rotated cube that becomes the mount point:
-      cube([ switchPaddingMin, mountPointWidth, switchDepth ]);
+      color("Red")
+      cube([ width, height, depth ]);
 
       // Fill the space that would be left above the rotated cube:
+      color("Green")
       rotate([ 0, -mountPointRotate, 0 ])
-      cube([ switchPaddingMin, mountPointWidth, switchDepth ]);
+      cube([ width, height, depth ]);
+
     }
 
     // Chop off parts that would extrude from cover plate:
-    translate([ switchWidth / 2, mountPointWidth / -2 - MAGIC, 0 ])
-    cube([ switchPaddingMin, mountPointWidth + MAGIC * 2, switchDepth * 2 ]);
+    translate([ 0, height / -2 - MAGIC, 0 ])
+    cube([ width, height + MAGIC * 2, depth * 2 ]);
 
-    translate([ switchWidth / 2 - switchPaddingMin + MAGIC, mountPointWidth / -2 - MAGIC, switchDepth ])
-    cube([ switchPaddingMin, mountPointWidth + MAGIC * 2, switchDepth * 2 ]);
+    translate([ 0 - width + MAGIC, height / -2 - MAGIC, depth ])
+    cube([ width, height + MAGIC * 2, depth * 2 ]);
 
   }
 

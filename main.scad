@@ -53,24 +53,24 @@ difference() {
 }
 
 color("SaddleBrown")
-mountPoint(
-  switchWidth,
-  switchDepth,
-  switchPaddingX,
-  switchPaddingY,
-  mountPointWidth,
-  mountPointRotate,
-  mountPointRaise
-);
+translate([ 0, 0, mountPointRaise - MAGIC ])
+union() {
 
-color("SaddleBrown")
-mirror([ 1, 0, 0 ])
-mountPoint(
-  switchWidth,
-  switchDepth,
-  switchPaddingX,
-  switchPaddingY,
-  mountPointWidth,
-  mountPointRotate,
-  mountPointRaise
-);
+  translate([ switchWidth / 2, 0, 0 ])
+  mountPoint(
+    switchPaddingMin,
+    mountPointWidth,
+    switchDepth - mountPointRaise,
+    mountPointRotate
+  );
+
+  mirror([ 1, 0, 0 ])
+  translate([ switchWidth / 2, 0, 0 ])
+  mountPoint(
+    switchPaddingMin,
+    mountPointWidth,
+    switchDepth - mountPointRaise,
+    mountPointRotate
+  );
+
+}
