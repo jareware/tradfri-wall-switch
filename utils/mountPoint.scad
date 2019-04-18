@@ -1,17 +1,24 @@
 include <../config.scad>;
 
 // Example:
-mountPoint();
+mountPoint(
+  0,
+  14.5,
+  13,
+  15,
+  25,
+  25,
+  3
+);
 
 module mountPoint(
-  switchWidth = 82 + TOLERANCE,
-  switchHeight = 82 + TOLERANCE,
-  switchDepth = 14.5 + TOLERANCE,
-  switchPaddingX = 13 - TOLERANCE,
-  switchPaddingY = 15 - TOLERANCE,
-  mountPointWidth = 25,
-  mountPointRotate = 25,
-  mountPointRaise = 8
+  switchWidth,
+  switchDepth,
+  switchPaddingX,
+  switchPaddingY,
+  mountPointWidth,
+  mountPointRotate,
+  mountPointRaise
 ) {
   switchPaddingMin = min(switchPaddingX, switchPaddingY); // of the given X/Y paddings, use the smaller one
 

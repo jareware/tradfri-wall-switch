@@ -53,8 +53,24 @@ difference() {
 }
 
 color("SaddleBrown")
-mountPoint();
+mountPoint(
+  switchWidth,
+  switchDepth,
+  switchPaddingX,
+  switchPaddingY,
+  mountPointWidth,
+  mountPointRotate,
+  mountPointRaise
+);
 
 color("SaddleBrown")
 mirror([ 1, 0, 0 ])
-mountPoint();
+mountPoint(
+  switchWidth,
+  switchDepth,
+  switchPaddingX,
+  switchPaddingY,
+  mountPointWidth,
+  mountPointRotate,
+  mountPointRaise
+);
