@@ -12,13 +12,13 @@ module mountPoint(
   width,
   height,
   depth,
-  mountPointRotate
+  slope
 ) {
   difference() {
 
     // Main body:
     translate([ 0 - MAGIC, 0, 0 ])
-    rotate([ 0, mountPointRotate, 0 ])
+    rotate([ 0, slope, 0 ])
     translate([ -width, height / -2, 0 ])
     union() {
 
@@ -28,7 +28,7 @@ module mountPoint(
 
       // Fill the space that would be left above the rotated cube:
       color("Green")
-      rotate([ 0, -mountPointRotate, 0 ])
+      rotate([ 0, -slope, 0 ])
       cube([ width, height, depth ]);
 
     }
