@@ -1,11 +1,7 @@
+include <config.scad>;
+
 use <utils/roundedCube.scad>;
-
-$fn = 100;
-
-MAGIC = 0.01;
-LOOSEN_BY = 1;
-PUCK_DIAM = 68.3;
-PUCK_THICK = 18.6;
+use <utils/mountPoint.scad>;
 
 wallThick = 3.5;
 puckHeightCoverage = .55;
@@ -19,7 +15,7 @@ rounding = 5;
 
   // Carve out space for puck:
   translate([ 0, 0, wallThick ])
-  cylinder(h = PUCK_THICK, d = PUCK_DIAM + LOOSEN_BY);
+  cylinder(h = PUCK_THICK, d = PUCK_DIAM + TOLERANCE);
 
   // Carve out access hole:
   translate([ 0, 0, -MAGIC ])
@@ -27,11 +23,11 @@ rounding = 5;
 
 }
 
-switchWidth = 82 + LOOSEN_BY;
-switchHeight = 82 + LOOSEN_BY;
-switchDepth = 14.5 + LOOSEN_BY;
-switchPaddingX = 13 - LOOSEN_BY;
-switchPaddingY = 15 - LOOSEN_BY;
+switchWidth = 82 + TOLERANCE;
+switchHeight = 82 + TOLERANCE;
+switchDepth = 14.5 + TOLERANCE;
+switchPaddingX = 13 - TOLERANCE;
+switchPaddingY = 15 - TOLERANCE;
 switchPaddingMin = min(switchPaddingX, switchPaddingY);
 mountPointWidth = 25;
 mountPointRotate = 25;
@@ -67,35 +63,6 @@ module coverPlate() {
 
 }
 
-module mountPoint() {
-
-  color("SaddleBrown")
-  difference() {
-
-    // Main body:
-    translate([ switchWidth / 2 - MAGIC, 0, mountPointRaise - MAGIC ])
-    rotate([ 0, mountPointRotate, 0 ])
-    translate([ -switchPaddingMin, mountPointWidth / -2, 0 ])
-    union() {
-      // Rotated cube that becomes the mount point:
-      cube([ switchPaddingMin, mountPointWidth, switchDepth ]);
-
-      // Fill the space that would be left above the rotated cube:
-      rotate([ 0, -mountPointRotate, 0 ])
-      cube([ switchPaddingMin, mountPointWidth, switchDepth ]);
-    }
-
-    // Chop off parts that would extrude from cover plate:
-    translate([ switchWidth / 2, mountPointWidth / -2, 0 ])
-    cube([ switchPaddingMin, mountPointWidth, switchDepth * 2 ]);
-
-    translate([ switchWidth / 2 - switchPaddingMin, mountPointWidth / -2, switchDepth ])
-    cube([ switchPaddingMin, mountPointWidth, switchDepth * 2 ]);
-
-  }
-
-}
-
 difference() {
   coverPlate();
 
@@ -106,7 +73,9 @@ difference() {
   cube(100, 50, 50, center = true);
 }
 
+color("SaddleBrown")
 mountPoint();
 
+color("SaddleBrown")
 mirror([ 1, 0, 0 ])
 mountPoint();
