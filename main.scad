@@ -7,6 +7,15 @@ wallThickness = 3.5;
 puckHeightCoverage = .55;
 accessHoleEdgeWidth = 6;
 rounding = 5;
+switchWidth = 83;
+switchHeight = 83;
+switchDepth = 17.5;
+switchPaddingX = 12;
+switchPaddingY = 14;
+switchPaddingMin = min(switchPaddingX, switchPaddingY);
+mountPointWidth = 25;
+mountPointSlope = 25;
+mountPointRaise = 6;
 
 translate([ 0, 0, switchDepth ])
 difference() {
@@ -16,7 +25,7 @@ difference() {
 
   // Carve out space for puck:
   translate([ 0, 0, wallThickness ])
-  cylinder(h = PUCK_THICK, d = PUCK_DIAM + TOLERANCE);
+  cylinder(h = PUCK_THICK, d = PUCK_DIAM + 1);
 
   // Carve out access hole:
   translate([ 0, 0, -MAGIC ])
@@ -24,23 +33,13 @@ difference() {
 
 }
 
-switchWidth = 82 + TOLERANCE;
-switchHeight = 82 + TOLERANCE;
-switchDepth = 16.5 + TOLERANCE;
-switchPaddingX = 13 - TOLERANCE;
-switchPaddingY = 15 - TOLERANCE;
-switchPaddingMin = min(switchPaddingX, switchPaddingY);
-mountPointWidth = 25;
-mountPointRotate = 25;
-mountPointRaise = 6;
-
 difference() {
   color("SteelBlue")
   coverPlate(
     rounding, wallThickness,
-    switchWidth = 82 + TOLERANCE,
-    switchHeight = 82 + TOLERANCE,
-    switchDepth = 14.5 + TOLERANCE
+    switchWidth,
+    switchHeight,
+    switchDepth
   );
 
   cylinder(d = PUCK_DIAM + wallThickness * 2, h = ALOT);
@@ -53,7 +52,7 @@ mountPoints(
   switchPaddingMin,
   mountPointWidth,
   switchDepth - mountPointRaise,
-  mountPointRotate,
+  mountPointSlope,
   switchWidth,
   switchHeight
 );
