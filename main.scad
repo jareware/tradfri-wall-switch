@@ -26,13 +26,13 @@ difference() {
 
 switchWidth = 82 + TOLERANCE;
 switchHeight = 82 + TOLERANCE;
-switchDepth = 14.5 + TOLERANCE;
+switchDepth = 16.5 + TOLERANCE;
 switchPaddingX = 13 - TOLERANCE;
 switchPaddingY = 15 - TOLERANCE;
 switchPaddingMin = min(switchPaddingX, switchPaddingY);
 mountPointWidth = 25;
 mountPointRotate = 25;
-mountPointRaise = 8;
+mountPointRaise = 6;
 
 difference() {
   color("SteelBlue")
