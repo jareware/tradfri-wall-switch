@@ -11,7 +11,7 @@ module mountPoint(
   switchPaddingY = 15 - TOLERANCE,
   mountPointWidth = 25,
   mountPointRotate = 25,
-  mountPointRaise = 2
+  mountPointRaise = 8
 ) {
   switchPaddingMin = min(switchPaddingX, switchPaddingY); // of the given X/Y paddings, use the smaller one
 
