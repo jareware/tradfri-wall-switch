@@ -1,6 +1,6 @@
 include <config.scad>;
 
-use <utils/mountPoint.scad>;
+use <utils/mountPoints.scad>;
 use <utils/coverPlate.scad>;
 
 wallThickness = 3.5;
@@ -45,32 +45,15 @@ difference() {
 
   cylinder(d = PUCK_DIAM + wallThickness * 2, h = ALOT);
 
-  translate([ 0, -65, 0 ])
-  cube(100, 50, 50, center = true);
-
-  translate([ 0, 65, 0 ])
-  cube(100, 50, 50, center = true);
 }
 
 color("SaddleBrown")
 translate([ 0, 0, mountPointRaise - MAGIC ])
-union() {
-
-  translate([ switchWidth / 2, 0, 0 ])
-  mountPoint(
-    switchPaddingMin,
-    mountPointWidth,
-    switchDepth - mountPointRaise,
-    mountPointRotate
-  );
-
-  mirror([ 1, 0, 0 ])
-  translate([ switchWidth / 2, 0, 0 ])
-  mountPoint(
-    switchPaddingMin,
-    mountPointWidth,
-    switchDepth - mountPointRaise,
-    mountPointRotate
-  );
-
-}
+mountPoints(
+  switchPaddingMin,
+  mountPointWidth,
+  switchDepth - mountPointRaise,
+  mountPointRotate,
+  switchWidth,
+  switchHeight
+);
