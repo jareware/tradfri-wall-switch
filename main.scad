@@ -8,7 +8,8 @@ puckHeightCoverage = .55;
 accessHoleEdgeWidth = 6;
 rounding = 5;
 
-*difference() {
+translate([ 0, 0, switchDepth ])
+difference() {
 
   // Main body:
   cylinder(h = PUCK_THICK * puckHeightCoverage + wallThickness, d = PUCK_DIAM + wallThickness * 2);
@@ -41,6 +42,8 @@ difference() {
     switchHeight = 82 + TOLERANCE,
     switchDepth = 14.5 + TOLERANCE
   );
+
+  cylinder(d = PUCK_DIAM + wallThickness * 2, h = ALOT);
 
   translate([ 0, -65, 0 ])
   cube(100, 50, 50, center = true);
