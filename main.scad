@@ -52,6 +52,8 @@ difference() {
 }
 
 difference() {
+
+  // Main body:
   color("SteelBlue")
   coverPlate(
     rounding,
@@ -61,6 +63,7 @@ difference() {
     switchDepth
   );
 
+  // Punch a hole for underlying switch access:
   cylinder(d = PUCK_DIAM, h = ALOT);
 
 }
