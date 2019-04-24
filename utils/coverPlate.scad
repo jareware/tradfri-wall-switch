@@ -36,7 +36,7 @@ module coverPlate(
       switchWidth,
       switchHeight,
       switchDepth,
-      r = rounding,
+      r = max(rounding - wallThickness, 0),
       flatBottom = true,
       center = true
     );
