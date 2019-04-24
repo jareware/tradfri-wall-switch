@@ -4,8 +4,8 @@ use <utils/mountPoints.scad>;
 use <utils/coverPlate.scad>;
 
 bodyWallThickness = 2.5;
-holderWallThickness = 3.5;
-holderBaseThickness = 3;
+holderWallThickness = 1.5;
+holderBaseThickness = 6.7;
 puckHeightCoverage = .75; // this needs to be enough to touch the widest point of the puck, to lock it in place
 accessHoleEdgeWidth = 6;
 rounding = 8;
