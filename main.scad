@@ -3,12 +3,12 @@ include <config.scad>;
 use <utils/mountPoints.scad>;
 use <utils/coverPlate.scad>;
 
-bodyWallThickness = 3.5;
+bodyWallThickness = 2.5;
 holderWallThickness = 3.5;
-holderBaseThickness = 0;
+holderBaseThickness = 3;
 puckHeightCoverage = .75; // this needs to be enough to touch the widest point of the puck, to lock it in place
 accessHoleEdgeWidth = 6;
-rounding = 5;
+rounding = 8;
 switchWidth = 84;
 switchHeight = 84;
 switchDepth = 17.5;
@@ -18,7 +18,7 @@ switchPaddingMin = min(switchPaddingX, switchPaddingY);
 mountPointWidth = 25;
 mountPointSlope = 25;
 mountPointRaise = 6;
-fingerHoleDiameter = 20;
+fingerHoleDiameter = 25;
 
 translate([ 0, 0, switchDepth ])
 difference() {
