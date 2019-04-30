@@ -43,3 +43,9 @@ First fully functional prototype.
 ![image](IMG_20190418_202108.jpg)
 
 ![image](IMG_20190418_202612.jpg)
+
+## Tagged `print-006`
+
+Test fitting over a 2-unit switch.
+
+![image](IMG_20190425_195439.jpg)
