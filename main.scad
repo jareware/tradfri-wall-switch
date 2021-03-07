@@ -14,7 +14,7 @@ module main(
   accessHoleEdgeWidth = 6,
   rounding = 8,
   switchWidth = 84,
-  switchHeight = 84,
+  switchHeight = 85, // <units> * 70 + 15 = <total-height>
   switchDepth = 17.5,
   switchPaddingX = 12,
   switchPaddingY = 14,
