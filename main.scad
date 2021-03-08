@@ -9,7 +9,7 @@ main();
 module main(
   bodyWallThickness = 2.5,
   holderWallThickness = 1.5,
-  holderBaseExtraThickness = 6.7,
+  holderBaseExtraThickness = 4,
   puckHeightCoverage = .75, // this needs to be enough to touch the widest point of the puck, to lock it in place
   accessHoleEdgeWidth = 6,
   rounding = 8,
@@ -25,7 +25,7 @@ module main(
 ) {
 
   translate([ 0, 0, switchDepth ])
-  puckHolder(
+  !puckHolder(
     bodyWallThickness,
     holderWallThickness,
     holderBaseExtraThickness,
