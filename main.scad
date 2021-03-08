@@ -8,7 +8,7 @@ main();
 
 module main(
   bodyWallThickness = 2.5,
-  holderWallThickness = 1.5,
+  holderWallThickness = 1,
   holderBaseExtraThickness = 4,
   puckHeightCoverage = .675, // this needs to be enough to touch the widest point of the puck, to lock it in place
   accessHoleEdgeWidth = 6,

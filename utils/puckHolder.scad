@@ -29,7 +29,7 @@ module puckHolder(
 
     // Carve out space for puck:
     translate([ 0, 0, bodyWallThickness ])
-    cylinder(h = PUCK_THICK, d = PUCK_DIAM + 1);
+    cylinder(h = PUCK_THICK, d = PUCK_DIAM);
 
     // Carve out access hole:
     translate([ 0, 0, -MAGIC ])
