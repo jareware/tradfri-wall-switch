@@ -13,8 +13,8 @@ module main(
   puckHeightCoverage = .675, // this needs to be enough to touch the widest point of the puck, to lock it in place
   accessHoleEdgeWidth = 6,
   rounding = 5.5,
-  switchWidth = 83,
-  switchHeight = 84, // <units> * 70 + 15 = <total-height>
+  switchWidth = 82.5,
+  switchHeight = 82.5,
   switchDepth = 17.5,
   switchPaddingX = 12,
   switchPaddingY = 14,
