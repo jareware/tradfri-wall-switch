@@ -20,7 +20,7 @@ module main(
   switchPaddingY = 14,
   mountPointWidth = 25,
   mountPointSlope = 25,
-  mountPointRaise = 6,
+  mountPointRaise = 5,
   fingerHoleDiameter = 25
 ) {
 
