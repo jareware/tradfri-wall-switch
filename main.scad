@@ -20,7 +20,7 @@ module main(
   switchPaddingY = 14,
   mountPointWidth = 25,
   mountPointSlope = 25,
-  mountPointRaise = 5,
+  mountPointRaise = 5.5, // this controls where the cover plate sits: too high a value and the mount points don't touch the sides of the switch; too low a value and there's an akward gap between the cover plate and the wall
   fingerHoleDiameter = 25
 ) {
 
