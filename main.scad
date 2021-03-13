@@ -3,6 +3,7 @@ include <config.scad>;
 use <utils/mountPoints.scad>;
 use <utils/coverPlate.scad>;
 use <utils/puckHolder.scad>;
+use <utils/roundedCube.scad>;
 
 main();
 
@@ -48,6 +49,15 @@ module main(
 
     // Punch a hole for underlying switch access:
     cylinder(d = PUCK_DIAM, h = ALOT);
+
+    translate([ 50, 0, 4 ])
+    roundedCube(
+      50,
+      switchHeight - 10,
+      50,
+      r = 10,
+      center = true
+    );
 
   }
 

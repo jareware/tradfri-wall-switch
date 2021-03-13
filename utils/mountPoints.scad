@@ -23,16 +23,6 @@ module mountPoints(
 
   union() {
 
-    color("Red")
-    rotate([ 0, 0, 0 ])
-    translate([ totalWidth / 2, 0, 0 ])
-    mountPoint(
-      width,
-      height,
-      depth,
-      slope
-    );
-
     color("Green")
     rotate([ 0, 0, 180 ])
     translate([ totalWidth / 2, 0, 0 ])
