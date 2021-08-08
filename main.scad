@@ -21,7 +21,9 @@ module main(
   mountPointWidth = 25,
   mountPointSlope = 25,
   mountPointRaise = 5.5, // this controls where the cover plate sits: too high a value and the mount points don't touch the sides of the switch; too low a value and there's an akward gap between the cover plate and the wall
-  fingerHoleDiameter = 25
+  fingerHoleDiameter = 25,
+  connectingTop = false,
+  connectingBottom = false
 ) {
 
   translate([ 0, 0, switchDepth ])
@@ -43,7 +45,9 @@ module main(
       bodyWallThickness,
       switchWidth,
       switchHeight,
-      switchDepth
+      switchDepth,
+      connectingTop = connectingTop,
+      connectingBottom = connectingBottom
     );
 
     // Punch a hole for underlying switch access:

@@ -8,7 +8,9 @@ coverPlate(
   3,
   100,
   100,
-  15
+  15,
+  connectingTop = true,
+  connectingBottom = true
 );
 
 module coverPlate(
@@ -16,7 +18,11 @@ module coverPlate(
   wallThickness,
   switchWidth,
   switchHeight,
-  switchDepth
+  switchDepth,
+  connectingTop = false,
+  connectingBottom = false,
+  connectorDepth = 6,
+  connectorPlugD = 4
 ) {
   difference() {
 
@@ -27,7 +33,9 @@ module coverPlate(
       switchDepth + wallThickness,
       r = rounding,
       flatBottom = true,
-      center = true
+      center = true,
+      flatFront = connectingBottom,
+      flatBack = connectingTop
     );
 
     // Carve out space for the switch:
@@ -41,6 +49,42 @@ module coverPlate(
       center = true
     );
 
+    // Connecting top:
+    if (connectingTop) {
+      translate([ 0, wallThickness + MAGIC, switchDepth / 2 - connectorDepth / 2 - MAGIC ])
+      cube([ switchWidth, switchHeight, switchDepth - connectorDepth ], center = true);
+    }
+
+    // Connecting bottom:
+    if (connectingBottom) {
+      translate([ 0, -wallThickness - MAGIC, switchDepth / 2 - connectorDepth / 2 - MAGIC ])
+      cube([ switchWidth, switchHeight, switchDepth - connectorDepth ], center = true);
+    }
+
+    // Carve out connecting bottom plug holes:
+    if (connectingBottom) {
+      color("red")
+      translate([ switchWidth / 2 - connectorPlugD / 2, -switchHeight / 2 - MAGIC, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
+      rotate([ 90, 0, 0 ])
+      cylinder(d = connectorPlugD, h = wallThickness);
+
+      color("green")
+      translate([ -switchWidth / 2 + connectorPlugD / 2, -switchHeight / 2 - MAGIC, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
+      rotate([ 90, 0, 0 ])
+      cylinder(d = connectorPlugD, h = wallThickness);
+    }
   }
 
+  // Add connecting top plugs:
+  if (connectingTop) {
+    color("red")
+    translate([ switchWidth / 2 - connectorPlugD / 2, switchHeight / 2 + wallThickness * 2, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
+    rotate([ 90, 0, 0 ])
+    cylinder(d = connectorPlugD, h = wallThickness);
+
+    color("green")
+    translate([ -switchWidth / 2 + connectorPlugD / 2, switchHeight / 2 + wallThickness * 2, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
+    rotate([ 90, 0, 0 ])
+    cylinder(d = connectorPlugD, h = wallThickness);
+  }
 }

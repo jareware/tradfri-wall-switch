@@ -18,7 +18,9 @@ module mountPoints(
   depth,
   slope,
   totalWidth,
-  totalHeight
+  totalHeight,
+  skipTop = false,
+  skipBottom = false
 ) {
 
   union() {
@@ -43,25 +45,29 @@ module mountPoints(
       slope
     );
 
-    color("Blue")
-    rotate([ 0, 0, 90 ])
-    translate([ totalHeight / 2, 0, 0 ])
-    mountPoint(
-      width,
-      height,
-      depth,
-      slope
-    );
+    if (!skipTop) {
+      color("Blue")
+      rotate([ 0, 0, 90 ])
+      translate([ totalHeight / 2, 0, 0 ])
+      mountPoint(
+        width,
+        height,
+        depth,
+        slope
+      );
+    }
 
-    color("Yellow")
-    rotate([ 0, 0, 270 ])
-    translate([ totalHeight / 2, 0, 0 ])
-    mountPoint(
-      width,
-      height,
-      depth,
-      slope
-    );
+    if (!skipBottom) {
+      color("Yellow")
+      rotate([ 0, 0, 270 ])
+      translate([ totalHeight / 2, 0, 0 ])
+      mountPoint(
+        width,
+        height,
+        depth,
+        slope
+      );
+    }
 
   }
 
