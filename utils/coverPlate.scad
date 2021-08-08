@@ -80,11 +80,11 @@ module coverPlate(
     color("red")
     translate([ switchWidth / 2 - connectorPlugD / 2, switchHeight / 2 + wallThickness * 2, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
     rotate([ 90, 0, 0 ])
-    cylinder(d = connectorPlugD, h = wallThickness);
+    cylinder(d1 = connectorPlugD * .75, d2 = connectorPlugD, h = wallThickness * .9);
 
     color("green")
     translate([ -switchWidth / 2 + connectorPlugD / 2, switchHeight / 2 + wallThickness * 2, switchDepth + wallThickness - (connectorDepth + wallThickness) / 2 ])
     rotate([ 90, 0, 0 ])
-    cylinder(d = connectorPlugD, h = wallThickness);
+    cylinder(d1 = connectorPlugD * .75, d2 = connectorPlugD, h = wallThickness * .9);
   }
 }

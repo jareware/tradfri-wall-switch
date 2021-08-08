@@ -63,7 +63,9 @@ module main(
     switchDepth - mountPointRaise,
     mountPointSlope,
     switchWidth,
-    switchHeight
+    switchHeight,
+    skipTop = connectingTop,
+    skipBottom = connectingBottom
   );
 
 }
