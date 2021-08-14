@@ -25,8 +25,13 @@ module main(
   connectingTop = false,
   connectingBottom = false
 ) {
+  connectionAdjustY = // move the puck holder (and its hole) slightly off-center as needed, to compensate for connections/rounding
+    !connectingTop && connectingBottom ? rounding / -2 :
+    connectingTop && !connectingBottom ? rounding / +2 :
+    0;
 
-  translate([ 0, 0, switchDepth ])
+  // Puck holder:
+  translate([ 0, connectionAdjustY, switchDepth ])
   puckHolder(
     bodyWallThickness,
     holderWallThickness,
@@ -36,9 +41,8 @@ module main(
     fingerHoleDiameter
   );
 
+  // Main body:
   difference() {
-
-    // Main body:
     color("SteelBlue")
     coverPlate(
       rounding,
@@ -51,10 +55,11 @@ module main(
     );
 
     // Punch a hole for underlying switch access:
+    translate([ 0, connectionAdjustY, 0 ])
     cylinder(d = PUCK_DIAM, h = ALOT);
-
   }
 
+  // Mount points:
   color("SaddleBrown")
   translate([ 0, 0, mountPointRaise - MAGIC ])
   mountPoints(
@@ -67,5 +72,4 @@ module main(
     skipTop = connectingTop,
     skipBottom = connectingBottom
   );
-
 }
