@@ -23,8 +23,8 @@ module coverPlate(
   connectingBottom = false,
   connectorDepth = 6,
   connectorPlugD = 4,
-  connectorPlugPointiness = .75,
-  connectorPlugShorten = .9
+  connectorPlugTolerance = .85,
+  connectorPlugShorten = .75
 ) {
   difference() {
 
@@ -94,7 +94,11 @@ module coverPlate(
       switchDepth + wallThickness - (connectorDepth + wallThickness) / 2
     ])
     rotate([ -90, 0, 0 ])
-    cylinder(d1 = connectorPlugD, d2 = connectorPlugD * connectorPlugPointiness, h = wallThickness * connectorPlugShorten);
+    cylinder(
+      d1 = connectorPlugD * connectorPlugTolerance,
+      d2 = connectorPlugD * connectorPlugTolerance,
+      h = wallThickness * connectorPlugShorten
+    );
 
     color("green")
     translate([
@@ -103,6 +107,10 @@ module coverPlate(
       switchDepth + wallThickness - (connectorDepth + wallThickness) / 2
     ])
     rotate([ -90, 0, 0 ])
-    cylinder(d1 = connectorPlugD, d2 = connectorPlugD * connectorPlugPointiness, h = wallThickness * connectorPlugShorten);
+    cylinder(
+      d1 = connectorPlugD * connectorPlugTolerance,
+      d2 = connectorPlugD * connectorPlugTolerance,
+      h = wallThickness * connectorPlugShorten
+    );
   }
 }

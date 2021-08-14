@@ -14,7 +14,7 @@ module main(
   accessHoleEdgeWidth = 6,
   rounding = 5.5,
   switchWidth = 82.5,
-  switchHeight = 82.5,
+  switchHeight = 154/2, // 82.5 or 154/2
   switchDepth = 17.5,
   switchPaddingX = 12,
   switchPaddingY = 14,
@@ -23,7 +23,7 @@ module main(
   mountPointRaise = 5.5, // this controls where the cover plate sits: too high a value and the mount points don't touch the sides of the switch; too low a value and there's an akward gap between the cover plate and the wall
   fingerHoleDiameter = 25,
   connectingTop = false,
-  connectingBottom = false
+  connectingBottom = true
 ) {
   connectionAdjustY = // move the puck holder (and its hole) slightly off-center as needed, to compensate for connections/rounding
     !connectingTop && connectingBottom ? rounding / -2 :
