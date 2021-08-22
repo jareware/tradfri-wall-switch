@@ -25,7 +25,8 @@ module main(
   connectingTop = false,
   connectingBottom = false,
   rotatePuckHolderDeg = 0,
-  puckHolderConnectionPackingMagic = 0
+  puckHolderConnectionPackingMagic = 0,
+  mountPointsCenterPacking = 0
 ) {
   connectionAdjustY = // move the puck holder (and its hole) slightly off-center as needed, to compensate for connections/rounding
     !connectingTop && connectingBottom ? (rounding + puckHolderConnectionPackingMagic) / -2 :
@@ -81,6 +82,10 @@ module main(
     switchWidth,
     switchHeight,
     skipTop = connectingTop,
-    skipBottom = connectingBottom
+    skipBottom = connectingBottom,
+    heightWisePacking =
+      !connectingTop && connectingBottom ? +mountPointsCenterPacking :
+      connectingTop && !connectingBottom ? -mountPointsCenterPacking :
+      0
   );
 }
