@@ -24,11 +24,12 @@ module main(
   fingerHoleDiameter = 25,
   connectingTop = false,
   connectingBottom = false,
-  rotatePuckHolderDeg = 0
+  rotatePuckHolderDeg = 0,
+  puckHolderConnectionPackingMagic = 0
 ) {
   connectionAdjustY = // move the puck holder (and its hole) slightly off-center as needed, to compensate for connections/rounding
-    !connectingTop && connectingBottom ? rounding / -2 :
-    connectingTop && !connectingBottom ? rounding / +2 :
+    !connectingTop && connectingBottom ? (rounding + puckHolderConnectionPackingMagic) / -2 :
+    connectingTop && !connectingBottom ? (rounding + puckHolderConnectionPackingMagic) / +2 :
     0;
 
   // Puck holder:
