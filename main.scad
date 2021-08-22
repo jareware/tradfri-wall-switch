@@ -32,16 +32,24 @@ module main(
     0;
 
   // Puck holder:
-  translate([ 0, connectionAdjustY, switchDepth ])
-  rotate([ 0, 0, rotatePuckHolderDeg ])
-  puckHolder(
-    bodyWallThickness,
-    holderWallThickness,
-    holderBaseExtraThickness,
-    puckHeightCoverage,
-    accessHoleEdgeWidth,
-    fingerHoleDiameter
-  );
+  difference() {
+    translate([ 0, connectionAdjustY, switchDepth ])
+    rotate([ 0, 0, rotatePuckHolderDeg ])
+    puckHolder(
+      bodyWallThickness,
+      holderWallThickness,
+      holderBaseExtraThickness,
+      puckHeightCoverage,
+      accessHoleEdgeWidth,
+      fingerHoleDiameter
+    );
+
+    // If the puck holder would stick out of a connecting end, chop the excess off:
+    if (connectingTop || connectingBottom && !(connectingTop && connectingBottom)) {
+      translate([ 0, (switchHeight + bodyWallThickness / 2) * (connectingTop ? 1 : -1), 0 ])
+      cube([ switchWidth / 2, switchHeight, ALOT ], center = true);
+    }
+  }
 
   // Main body:
   difference() {
