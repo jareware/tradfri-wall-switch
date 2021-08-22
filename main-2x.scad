@@ -4,7 +4,8 @@ use <main.scad>;
 
 main(
   switchHeight = 152.5/2,
-  connectingBottom = true
+  connectingBottom = true,
+  rotatePuckHolderDeg = 30
 );
 
 translate([0, -78.76 - 10, 0])
