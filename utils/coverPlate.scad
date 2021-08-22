@@ -26,6 +26,11 @@ module coverPlate(
   connectorPlugTolerance = .85,
   connectorPlugShorten = .75
 ) {
+  // If we're making a connecting bit, subtract one wallThickness from the height as needed
+  switchHeight = (connectingTop && !connectingBottom || !connectingTop && connectingBottom)
+    ? switchHeight - wallThickness
+    : switchHeight;
+
   difference() {
 
     // Main body:
