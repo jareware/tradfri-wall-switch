@@ -21,14 +21,15 @@ module mountPoints(
   totalHeight,
   skipTop = false,
   skipBottom = false,
-  heightWisePacking = 0
+  heightWisePacking = 0,
+  sideDepthAdjust = 0
 ) {
 
   union() {
 
     color("Red")
     rotate([ 0, 0, 0 ])
-    translate([ totalWidth / 2, -heightWisePacking, 0 ])
+    translate([ totalWidth / 2, -heightWisePacking, sideDepthAdjust ])
     mountPoint(
       width,
       height,
@@ -38,7 +39,7 @@ module mountPoints(
 
     color("Green")
     rotate([ 0, 0, 180 ])
-    translate([ totalWidth / 2, heightWisePacking, 0 ])
+    translate([ totalWidth / 2, heightWisePacking, sideDepthAdjust ])
     mountPoint(
       width,
       height,
