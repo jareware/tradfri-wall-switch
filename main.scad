@@ -68,7 +68,7 @@ module main(
     );
 
     // Punch a hole for underlying switch access:
-    translate([ 0, connectionAdjustY, 0 ])
+    translate([ 0, connectionAdjustY, switchDepth - MAGIC * 2 ])
     cylinder(d = PUCK_DIAM, h = ALOT);
   }
 
