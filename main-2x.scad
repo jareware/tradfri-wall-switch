@@ -6,7 +6,7 @@ switchHeight = (152.5 + 1.5) / 2; // measured + tolerance
 rotatePuckHolderDeg = 30;
 puckHolderConnectionPackingMagic = 2.5;
 mountPointsCenterPacking = 7;
-sideMountPointsDepthAdjust = 1.5; // the sides are a bit higher on the physical wall switch :shrug:
+sideMountPointsDepthAdjust = .5; // the sides are a tiny bit higher on the physical wall switch :shrug:
 
 main(
   connectingBottom = true,
