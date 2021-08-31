@@ -10,7 +10,7 @@ sideMountPointsDepthAdjust = .5; // the sides are a tiny bit higher on the physi
 
 main(
   connectingBottom = true,
-  rotatePuckHolderDeg = rotatePuckHolderDeg,
+  rotatePuckHolderDeg = 90,
   switchHeight = switchHeight,
   puckHolderConnectionPackingMagic = puckHolderConnectionPackingMagic,
   mountPointsCenterPacking = mountPointsCenterPacking,
@@ -20,6 +20,7 @@ main(
 translate([0, -switchHeight - 2.5 - 15, 0])
 main(
   connectingTop = true,
+  rotatePuckHolderDeg = 90,
   switchHeight = switchHeight,
   puckHolderConnectionPackingMagic = puckHolderConnectionPackingMagic,
   mountPointsCenterPacking = mountPointsCenterPacking,
