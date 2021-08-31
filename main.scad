@@ -71,4 +71,23 @@ module main(
     translate([ 0, connectionAdjustY, switchDepth - MAGIC * 2 ])
     cylinder(d = PUCK_DIAM, h = ALOT);
   }
+
+  // Mount points:
+  color("SaddleBrown")
+  translate([ 0, 0, mountPointRaise - MAGIC ])
+  mountPoints(
+    min(switchPaddingX, switchPaddingY), // whichever padding is smaller, use that both horizontally & vertically, for symmetry
+    mountPointWidth,
+    switchDepth - mountPointRaise,
+    mountPointSlope,
+    switchWidth,
+    switchHeight,
+    skipTop = connectingTop,
+    skipBottom = connectingBottom,
+    heightWisePacking =
+      !connectingTop && connectingBottom ? +mountPointsCenterPacking :
+      connectingTop && !connectingBottom ? -mountPointsCenterPacking :
+      0,
+    sideDepthAdjust = sideMountPointsDepthAdjust
+  );
 }
