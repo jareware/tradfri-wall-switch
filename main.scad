@@ -48,8 +48,13 @@ module main(
     );
 
     // If the puck holder would stick out of a connecting end, chop the excess off:
-    if (connectingTop || connectingBottom && !(connectingTop && connectingBottom)) {
-      translate([ 0, (switchHeight + bodyWallThickness / 2) * (connectingTop ? 1 : -1), 0 ])
+    connectingBoth = connectingTop && connectingBottom;
+    if (connectingTop) {
+      translate([ 0, (switchHeight + bodyWallThickness / (connectingBoth ? 1 : 2)), 0 ])
+      cube([ switchWidth / 2, switchHeight, ALOT ], center = true);
+    }
+    if (connectingBottom) {
+      translate([ 0, (switchHeight + bodyWallThickness / (connectingBoth ? 1 : 2)) * -1, 0 ])
       cube([ switchWidth / 2, switchHeight, ALOT ], center = true);
     }
   }
