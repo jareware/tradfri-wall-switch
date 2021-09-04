@@ -46,3 +46,7 @@ main(
   mountPointsCenterPacking = mountPointsCenterPacking,
   sideMountPointsDepthAdjust = sideMountPointsDepthAdjust
 );
+
+// // Sanity check measuring stick:
+// translate([-5, switchHeight * -3 - bodyWallThickness, 0])
+// #cube([10, switchHeight * 3, 10]);

@@ -96,3 +96,21 @@ module main(
     sideDepthAdjust = sideMountPointsDepthAdjust
   );
 }
+
+// Sanity check measuring sticks:
+
+// // No connecting
+// translate([0, 82.5 / -2, 0])
+// #cube([10, 82.5, 10]);
+
+// // connectingTop
+// translate([0, 82.5 / -2 + 2.5 / 2, 0])
+// #cube([10, 82.5, 10]);
+
+// // connectingBottom
+// translate([0, 82.5 / -2 - 2.5 / 2, 0])
+// #cube([10, 82.5, 10]);
+
+// // connectingTop && connectingBottom
+// translate([0, 82.5 / -2, 0])
+// #cube([10, 82.5, 10]);
